@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdias <mdias@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 20:52:44 by mdias             #+#    #+#             */
-/*   Updated: 2023/06/06 18:43:26 by mdias            ###   ########.fr       */
+/*   Created: 2023/06/03 16:22:45 by mdias             #+#    #+#             */
+/*   Updated: 2023/06/06 18:51:02 by mdias            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_alpha(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (src[i] != '\0')
+	if (*str == '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		return (1);
 	}
-	dest[i] = '\0';
-	return (dest);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z')
+			|| (str[i] >= 'A' && str[i] <= 'Z'))
+		{
+				i++;
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
 
 // #include <stdio.h>
-// int	main(void)
+// int main(void)
 // {
-// 	char	src[] = "Natali";
-// 	char	dest[] = "";
-// 	printf(":%s:\n", dest);
-// 	ft_strcpy(dest, src);
-// 	printf(":%s:\n", dest);
-// 	return(0);
+// 	char	*str = "";
+// 	ft_str_is_alpha(str);
+// 	printf("%d\n", ft_str_is_alpha(str));
 // }
